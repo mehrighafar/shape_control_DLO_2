@@ -5,10 +5,10 @@
 Repository for the IEEE T-RO Paper "Global Model Learning for Large Deformation Control of Elastic Deformable Linear Objects: An Efficient and Adaptive Approach".
 
 Here we provide:
-* the code for the model learning and controller
-* the offline training data
-* the offline learned deformation model
-* the built simulation environment
+* The code for the model learning and controller
+* The offline training data
+* The offline learned deformation model
+* The built simulation environment
 
 
 ## Dependencies
@@ -19,7 +19,7 @@ Here we provide:
 * [Unity](https://unity.com/) for Linux 2020.03
 * [Obi](http://obi.virtualmethodstudio.com/): for simulating the DLOs
 * [Unity ML-Agents Toolkit](https://github.com/Unity-Technologies/ml-agents): for the communication between the Unity and Python scripts
-* [PyTorch-Radial-Basis-Function-Layer](https://github.com/JeremyLinux/PyTorch-Radial-Basis-Function-Layer): we use the code for the implementation of RBFN in pytorch
+* [PyTorch-Radial-Basis-Function-Layer](https://github.com/JeremyLinux/PyTorch-Radial-Basis-Function-Layer): we use the code for the implementation of RBFN in PyTorch
 
 ## Installation
 
@@ -29,7 +29,7 @@ Install Unity for Linux 2020.03 [doc](https://docs.unity3d.com/2020.2/Documentat
 
 Install Unity ML-Agents Toolkit [doc](https://github.com/Unity-Technologies/ml-agents/blob/release_18_docs/docs/Installation.md).
 
-Install the following dependeces in your python3 env:
+Install the following dependencies in your python3 env:
 ```
 # about pytorch
 conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=11.0 -c pytorch
@@ -85,7 +85,7 @@ Modifiable parameters in *dlo_system_pkg/config/params_sim.yaml*:
 
 ### Shape Control Tasks
 
-We provide a demo of  DLO shape control, which can be easily run with as less dependencies as possible.
+We provide a demo of  DLO shape control, which can be easily run with as few dependencies as possible.
 
 Source the workspace:
 
@@ -128,11 +128,11 @@ To change the training dataset, you can change the code in '\_\_main\_\_' of *dl
 
 ### Built Simulation Environment
 
-The simulation environment is an executable file built by Unity. In both 2D and 3D environment, the ends of the DLO are grasped by two grippers which can translate and rotate.
+The simulation environment is an executable file built by Unity. In both 2D and 3D environments, the ends of the DLO are grasped by two grippers which can translate and rotate.
 
 Both the control rate and the data collection rate are 10 Hz.
 
-The manipulated DLO is with a length of 0.5m and a diameter of 1cm.
+The manipulated DLO has a length of 0.5m and a diameter of 1cm.
 
 #### Coordinate
 
@@ -142,7 +142,7 @@ In 2D tasks, the x axis is towards the bottom of the screen. The y axis is towar
 
 In 3D tasks, the x axis is towards the outside of the screen. The y axis is towards the right of the screen. The z axis is towards the top of the screen.
 
-Actually, the coordinates in 2D and 3D environment are the same. Only the position of the camera is changed.
+Actually, the coordinates in 2D and 3D environments are the same. Only the position of the camera is changed.
 
 #### Feature points along DLOs
 
@@ -166,10 +166,10 @@ The state is a 117-dimension vector.
 - 45~74: the velocities of the 10 features (10*3)
 - 75~86: the velocities of the end-effectors
   - left end linear velocity (3) + left end angular velocity (3) + right end linear velocity (3) + right end angular velocity (3)
-  - The representation of the angular velocities is rotation vector.
+  - The representation of the angular velocities is a rotation vector.
 - 87~116: the desired positions of the 10 features (10*3)
 
-Note that in 2D environment, the dimension of the position of one feature is still three, but the value in the z axis is always zero.
+Note that in a 2D environment, the dimension of the position of one feature is still three, but the value in the z axis is always zero.
 
 #### Action
 
@@ -180,7 +180,7 @@ The action is a 12-dimension vector.
 - 6~8: the linear velocity of the right end effector
 - 9~11: the angular velocity of the right end effector
 
-In our implementation, the action is formulated as the above format in both 2D and 3D environment. Thus, in 2D tasks, we need to output valid control input in the controller script, where the [2, 3, 4, 8, 9, 10] dimension of the control input must be zero.
+In our implementation, the action is formulated as in the above format in both 2D and 3D environments. Thus, in 2D tasks, we need to output valid control input in the controller script, where the [2, 3, 4, 8, 9, 10] dimension of the control input must be zero.
 
 ### Training Dataset
 
@@ -193,4 +193,4 @@ The format of the training dataset is (-1, 117). Each row is a 117-dimension sta
 
 ## Contact
 
-If you have any question, feel free to raise an issue (recommended) or contact the authors: Mingrui Yu, [ymr20@mails.tsinghua.edu.cn](mailto:ymr20@mails.tsinghua.edu.cn)
+If you have any questions, feel free to raise an issue (recommended) or contact the authors: Mingrui Yu, [ymr20@mails.tsinghua.edu.cn](mailto:ymr20@mails.tsinghua.edu.cn)
